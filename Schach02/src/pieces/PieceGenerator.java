@@ -8,21 +8,37 @@ public List<Piece> GeneratePieces(CurrentBoard board){
 	List<Piece> dong = new ArrayList<Piece>();
 	
 		Rook WAR = new Rook(board, "White" , board.Squares[1][1]);
+		WAR.setName("R");
 		Knight WBN = new Knight (board, "White" , board.Squares[2][1]);
+		WBN.setName("N");
 		Bishop WCB =new Bishop (board, "White" , board.Squares[3][1]);
+		WCB.setName("B");
 		Queen WDQ = new Queen(board, "White" , board.Squares[4][1]);
+		WDQ.setName("Q");
 		King WEK = new King(board, "White" , board.Squares[5][1]);
+		WEK.setName("K");
 		Bishop WFB =new Bishop (board, "White" , board.Squares[6][1]);
+		WFB.setName("B");
 		Knight WGN = new Knight (board, "White" , board.Squares[7][1]);
+		WGN.setName("N");
 		Rook WHR = new Rook(board, "White" , board.Squares[8][1]);
+		WHR.setName("R");
 		Pawn WAP = new Pawn(board, "White" , board.Squares[1][2]);
+		WAP.setName("P");
 		Pawn WBP = new Pawn(board, "White" , board.Squares[2][2]);
+		WBP.setName("P");
 		Pawn WCP = new Pawn(board, "White" , board.Squares[3][2]);
+		WCP.setName("P");
 		Pawn WDP = new Pawn(board, "White" , board.Squares[4][2]);
+		WDP.setName("P");
 		Pawn WEP = new Pawn(board, "White" , board.Squares[5][2]);
+		WEP.setName("P");
 		Pawn WFP = new Pawn(board, "White" , board.Squares[6][2]);
+		WFP.setName("P");
 		Pawn WGP = new Pawn(board, "White" , board.Squares[7][2]);
+		WGP.setName("P");
 		Pawn WHP = new Pawn(board, "White" , board.Squares[8][2]);
+		WHP.setName("P");
 		
 	
 		Rook BAR = new Rook(board, "Black" , board.Squares[1][8]);
@@ -34,13 +50,21 @@ public List<Piece> GeneratePieces(CurrentBoard board){
 		Knight BGN = new Knight (board, "Black" , board.Squares[7][8]);
 		Rook BHR = new Rook(board, "Black" , board.Squares[8][8]);
 		Pawn BAP = new Pawn(board, "Black" , board.Squares[1][7]);
+		BAP.setName("P");
 		Pawn BBP = new Pawn(board, "Black" , board.Squares[2][7]);
+		BBP.setName("P");
 		Pawn BCP = new Pawn(board, "Black" , board.Squares[3][7]);
+		BCP.setName("P");
 		Pawn BDP = new Pawn(board, "Black" , board.Squares[4][7]);
+		BDP.setName("P");
 		Pawn BEP = new Pawn(board, "Black" , board.Squares[5][7]);
+		BEP.setName("P");
 		Pawn BFP = new Pawn(board, "Black" , board.Squares[6][7]);
+		BFP.setName("P");
 		Pawn BGP = new Pawn(board, "Black" , board.Squares[7][7]);
+		BGP.setName("P");
 		Pawn BHP = new Pawn(board, "Black" , board.Squares[8][7]);
+		BHP.setName("P");
 					//	INDEX        FIGUR
 		dong.add(WEK); //0			KÖNIG WEISS
 		dong.add(BEK); //1			KÖNIG SCHWARZ
