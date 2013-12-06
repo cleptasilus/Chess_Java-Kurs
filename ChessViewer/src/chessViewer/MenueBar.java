@@ -1,16 +1,34 @@
 package chessViewer;
-import javax.swing.*;
 
-public class MenueBar extends JMenuBar 
-{
+import game.CurrentBoard;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+import pieces.PieceGenerator;
+
+public class MenueBar extends JMenuBar {
 	private static final long serialVersionUID = 5271549435848912197L;
 	JMenu spiel;
 	JMenu benutzer;
 	JMenu hilfe;
-	MenueBar()
-	{
+
+	MenueBar() {
 		spiel = new JMenu("Spiel");
-		spiel.add(new JMenuItem("Neues Spiel"));
+		JMenuItem menuItem = new JMenuItem("Neues Spiel");
+		menuItem.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				CurrentBoard currentBoard = new CurrentBoard();
+				PieceGenerator pieceGenerator = new PieceGenerator();
+				pieceGenerator.GeneratePieces(currentBoard);
+			}
+		});
+		spiel.add(menuItem);
 		spiel.add(new JMenuItem("Spiel Laden"));
 		spiel.add(new JMenuItem("Spiel speichern"));
 		spiel.add(new JMenuItem("Spiel Einstellungen"));

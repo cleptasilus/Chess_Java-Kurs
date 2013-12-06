@@ -8,5 +8,5 @@ public interface Size
 	final int brettHigh = brettWidth;
 	final int figureWidht = 60;
 	final int figureHigh = 60;
-	final int figureAbstand = 20;
+	final int figureAbstand = 16;
 }

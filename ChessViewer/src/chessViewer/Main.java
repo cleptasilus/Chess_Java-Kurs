@@ -8,7 +8,10 @@ public class Main {
 	{
 		JFrame mf = new MainFrame();
 		mf.setVisible(true);
-		mf.repaint();
+		while(true)
+		{
+			mf.repaint();
+		}
 	}
 
 }
