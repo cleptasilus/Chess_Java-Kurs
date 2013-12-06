@@ -11,24 +11,25 @@ public class PathClear {
 		int j = 0;
 		i = (difx > 0) ? difx : -difx;
 		j = (dify > 0) ? dify : -dify;
-
-		for (int m = 1; i >= j ? m < i : m < j; m++) {
+		for (int m = 1; m < i; m++) {
 			if (difx == 0) {
 				if (board.Squares[start.getPositionx()][start.getPositiony()
-						+ (m * (dify / j))].isOccupied()) {
+						+ m * (dify / j)].isOccupied()) {
 					System.out.println("Figur im Weg!");
 					return false;
 				}
-			} else if (dify == 0) {
-				if (board.Squares[start.getPositionx() + (m * (difx / i))][start
-						.getPositiony()].isOccupied()) {
+
+				else if (dify == 0) {
+					if (board.Squares[start.getPositionx() + m * (difx / i)][start
+							.getPositiony()].isOccupied()) {
+						System.out.println("Figur im Weg!");
+						return false;
+					}
+				} else if (board.Squares[start.getPositionx() + m * (difx / i)][start
+						.getPositiony() + m * (dify / j)].isOccupied()) {
 					System.out.println("Figur im Weg!");
 					return false;
 				}
-			} else if (board.Squares[start.getPositionx() + (m * (difx / i))][start
-					.getPositiony() + (m * (dify / j))].isOccupied()) {
-				System.out.println("Figur im Weg!");
-				return false;
 			}
 		}
 		return true;
@@ -42,7 +43,7 @@ public class PathClear {
 		int j = 0;
 		i = (difx > 0) ? difx : -difx;
 		j = (dify > 0) ? dify : -dify;
-		for (int m = 1; i > j ? m < i : m < j; m++) {
+		for (int m = 1; m < i; m++) {
 			if (difx == 0) {
 				if (board.Squares[start.getPositionx()][start.getPositiony()
 						+ m * (dify / j)] == movedpiecestart) {

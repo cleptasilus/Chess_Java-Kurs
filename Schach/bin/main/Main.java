@@ -13,15 +13,12 @@ public class Main {
 
 		CurrentBoard s = new CurrentBoard();
 		FullMove move = new FullMove();
-		move.move(s, s.Squares[4][1], s.Squares[7][4]);
-//		move.move(s, s.Squares[5][2], s.Squares[5][3]);
-//		move.move(s, s.Squares[5][3], s.Squares[5][2]);
-//		move.move(s, s.Squares[6][1], s.Squares[3][4]);
-//		move.move(s, s.Squares[5][3], s.Squares[5][4]);
-//		move.move(s, s.Squares[5][4], s.Squares[5][5]);
-//		move.move(s, s.Squares[5][5], s.Squares[5][6]);
-//		move.move(s, s.Squares[5][6], s.Squares[6][7]);
-//		
+		move.move(s, s.Squares[5][2], s.Squares[5][3]);
+		move.move(s, s.Squares[6][1], s.Squares[3][4]);
+		move.move(s, s.Squares[5][3], s.Squares[5][4]);
+		move.move(s, s.Squares[5][4], s.Squares[5][5]);
+		move.move(s, s.Squares[5][5], s.Squares[5][6]);
+		move.move(s, s.Squares[5][6], s.Squares[6][7]);
 
 //		Bishop a = new Bishop(s, "White", s.Squares[8][8]);
 //		System.out.println(a.toString());
