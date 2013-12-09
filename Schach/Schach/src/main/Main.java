@@ -13,7 +13,9 @@ public class Main {
 
 		CurrentBoard s = new CurrentBoard();
 		FullMove move = new FullMove();
-		move.move(s, s.Squares[4][1], s.Squares[7][4]);
+		move.move(s, s.Squares[1][7], s.Squares[1][5]);
+//		move.move(s, s.Squares[7][7], s.Squares[7][5]);
+//		move.move(s, s.Squares[4][1], s.Squares[7][4]);
 //		move.move(s, s.Squares[5][2], s.Squares[5][3]);
 //		move.move(s, s.Squares[5][3], s.Squares[5][2]);
 //		move.move(s, s.Squares[6][1], s.Squares[3][4]);

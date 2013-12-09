@@ -23,7 +23,7 @@ public class CentralMovement {
 			return n.MoveKnight(board, start, target);
 		case "":
 			PawnMovement p= new PawnMovement();
-			if(!(target.getPositiony()-start.getPositiony()==2 && target.getPositionx()-start.getPositionx()==0)){
+			if(!((target.getPositiony()-start.getPositiony()==2 || target.getPositiony()-start.getPositiony()==-2)&& target.getPositionx()-start.getPositionx()==0)){
 			return p.MovePawn(board, start, target);
 			}
 			else{

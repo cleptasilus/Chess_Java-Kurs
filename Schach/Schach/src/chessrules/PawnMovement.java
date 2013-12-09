@@ -7,10 +7,10 @@ public class PawnMovement {
 	public boolean MovePawn(CurrentBoard board, Square start, Square target) {
 		if ((start.OccupiyingPiece.getColour() == "White"
 				&& target.getPositiony() == start.getPositiony() + 1 && !target
-					.isOccupied())
+					.isOccupied() && target.getPositionx()==start.getPositionx())
 				|| (start.OccupiyingPiece.getColour() == "Black"
 						&& target.getPositiony() == start.getPositiony() - 1 && !target
-							.isOccupied())
+							.isOccupied() && target.getPositionx()==start.getPositionx())
 				|| (start.OccupiyingPiece.getColour() == "White"
 						&& target.isOccupied()
 						&& ((target.getPositionx() == start.getPositionx() + 1) || (target

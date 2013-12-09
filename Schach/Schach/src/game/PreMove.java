@@ -5,44 +5,45 @@ import board.Square;
 import chessrules.*;
 public class PreMove {
 	public boolean premove(CurrentBoard board, Square start, Square target){
+		boolean result = false;
 		for(Piece piece: board.pieces){
 			if (piece.getColour()!=start.OccupiyingPiece.getColour()){
 				switch(piece.getColour()){
 				case "Black":
 					switch(piece.getName()){
 					case"Q":
-						QueenMovement q= new QueenMovement();
-						return q.CheckQueen2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					QueenMovement q= new QueenMovement();
+					result = q.CheckQueen2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					case"R":
-						RookMovement r= new RookMovement();
-						return r.CheckRook2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					RookMovement r= new RookMovement();
+					result= r.CheckRook2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					case"N":
-						KnightMovement n = new KnightMovement();
-						n.CheckKnight2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					KnightMovement n = new KnightMovement();
+					result = n.CheckKnight2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					case"":
-						PawnMovement p = new PawnMovement();
-						p.CheckPawn2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					PawnMovement p = new PawnMovement();
+					result = p.CheckPawn2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					case"B":
-						BishopMovement b = new BishopMovement();
-						return b.CheckBishop2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					BishopMovement b = new BishopMovement();
+					result = b.CheckBishop2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					}
 				case "White":
 					switch(piece.getName()){
 					case"Q":
 					QueenMovement q= new QueenMovement();			
-					return q.CheckQueen2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					result = q.CheckQueen2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					case"R":
 					RookMovement r= new RookMovement();
-					return r.CheckRook2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					result = r.CheckRook2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					case"N":
-						KnightMovement n = new KnightMovement();
-						n.CheckKnight2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					KnightMovement n = new KnightMovement();
+					result = n.CheckKnight2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					case"":
-						PawnMovement p = new PawnMovement();
-						p.CheckPawn2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					PawnMovement p = new PawnMovement();
+					result = p.CheckPawn2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					case"B":
-						BishopMovement b = new BishopMovement();
-						return b.CheckBishop2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+					BishopMovement b = new BishopMovement();
+					result = b.CheckBishop2(board, piece.getPosition(), board.pieces.get(1).getPosition(), start, target);
 					}
 			}
 		}
@@ -51,6 +52,6 @@ public class PreMove {
 		
 		
 	}
-		return false;
+		return result;
 }
 }

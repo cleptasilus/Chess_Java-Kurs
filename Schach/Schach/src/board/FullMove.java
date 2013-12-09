@@ -15,7 +15,7 @@ public class FullMove {
 			if (cent.piecemoveslikethat(board, start, target)) {
 
 				CheckMove check = new CheckMove();
-				if (check.MoveLegal(board, start, target)) {
+				if (start.OccupiyingPiece.getName()=="N" || check.MoveLegal(board, start, target) ) {
 					boolean captures = false;
 					if (target.isOccupied()) {
 						captures = true;
