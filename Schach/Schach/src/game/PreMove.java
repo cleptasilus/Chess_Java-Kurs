@@ -8,16 +8,20 @@ public class PreMove {
 	public boolean premove(CurrentBoard board, Square start, Square target) {
 		boolean result = false;
 		for (Piece piece : board.pieces) {
-			if (result==true){
+			if (result == true) {
 				return result;
 			}
-			if (!(piece.getPosition()==board.Squares[0][0]) && !(piece.getColour() == start.OccupiyingPiece.getColour()) ) {
+			if (!(piece.getPosition() == board.Squares[0][0])
+					&& !(piece.getColour() == start.OccupiyingPiece.getColour())
+					&& (!(piece.getPosition() == target))) {
 				switch (piece.getColour()) {
 				case "Black":
 					switch (piece.getName()) {
 					case "K":
 						KingMovement k = new KingMovement();
-						result = k.MoveKing2(board, piece.getPosition(), board.pieces.get(0).getPosition(), start, target);
+						result = k.MoveKing2(board, piece.getPosition(),
+								board.pieces.get(0).getPosition(), start,
+								target);
 					case "Q":
 						QueenMovement q = new QueenMovement();
 						result = q.CheckQueen2(board, piece.getPosition(),
@@ -88,7 +92,7 @@ public class PreMove {
 			}
 
 		}
-		
+
 		return result;
 	}
 }

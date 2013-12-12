@@ -16,19 +16,12 @@ public class Main {
 
 		FullMove move = new FullMove();
 		
-		move.move(s, s.Squares[5][2], s.Squares[5][3], null);
-		move.move(s, s.Squares[5][7], s.Squares[5][5], null);
-		move.move(s, s.Squares[5][8], s.Squares[5][7], null);
-		move.move(s, s.Squares[5][7], s.Squares[6][6], null);
-
-		move.move(s, s.Squares[6][2], s.Squares[6][4], null);
-		
-		move.move(s, s.Squares[6][4], s.Squares[5][5], null);
-		move.move(s, s.Squares[6][6], s.Squares[6][5], null);
-		move.move(s, s.Squares[6][1], s.Squares[3][4], null);
-		
-		move.move(s, s.Squares[7][1], s.Squares[5][2], null);
-		move.move(s, s.Squares[5][1], s.Squares[7][1], null);
+		move.move(s, s.Squares[4][2], s.Squares[4][3], "Q");
+		move.move(s, s.Squares[4][3], s.Squares[4][4], "Q");
+		move.move(s, s.Squares[4][4], s.Squares[4][5], "Q");
+		move.move(s, s.Squares[4][5], s.Squares[4][6], "Q");
+		move.move(s, s.Squares[4][6], s.Squares[5][7], "Q");
+		move.move(s, s.Squares[5][7], s.Squares[6][8], "Q");
 
 //		move.move(s, s.Squares[6][8], s.Squares[3][5]);
 //		move.move(s, s.Squares[8][5], s.Squares[6][7]);

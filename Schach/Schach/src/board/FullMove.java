@@ -109,21 +109,23 @@ public class FullMove {
 					}
 					String movestring;
 					if (captures == true) {
+						if (transformed) {
+							movestring = start.toString().substring(0, 1)
+									+ "x" + target.toString() + "="
+									+ desiredpiece;
+						}
+						else{
 						if (target.OccupiyingPiece.getName() == "") {
-							if (transformed) {
-								movestring = start.toString().substring(0, 1)
-										+ "x" + target.toString() + "="
-										+ desiredpiece;
-							} else {
 								movestring = start.toString().substring(0, 1)
 										+ "x" + target.toString();
 							}
 
-						} else {
+						 else {
 							movestring = "x"
 									+ target.OccupiyingPiece.getPosition()
 											.toString();
 
+						}
 						}
 					} else {
 						if (transformed) {
@@ -139,7 +141,7 @@ public class FullMove {
 							|| check.DiscoveredCheck(board, target)) {
 						if (!resultchecker.LegalMoves(board,
 								target.OccupiyingPiece.getColour())) {
-							System.out.println(target.OccupiyingPiece.getName()
+							System.out.println(transformed ? movestring + "#" : target.OccupiyingPiece.getName()
 									+ movestring + "#");
 							switch (target.OccupiyingPiece.getColour()) {
 							case "White":
@@ -151,13 +153,13 @@ public class FullMove {
 							}
 
 						} else {
-							System.out.println(target.OccupiyingPiece.getName()
+							System.out.println(transformed? movestring + "+" : target.OccupiyingPiece.getName()
 									+ movestring + "+");
 						}
 					} else {
 						if (!resultchecker.LegalMoves(board,
 								target.OccupiyingPiece.getColour())) {
-							System.out.println(target.OccupiyingPiece.getName()
+							System.out.println(transformed? movestring + "Patt":target.OccupiyingPiece.getName()
 									+ movestring + "Patt");
 							board.result = 3;
 
