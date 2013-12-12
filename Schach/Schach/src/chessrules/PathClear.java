@@ -16,18 +16,18 @@ public class PathClear {
 			if (difx == 0) {
 				if (board.Squares[start.getPositionx()][start.getPositiony()
 						+ (m * (dify / j))].isOccupied()) {
-					System.out.println("Figur im Weg!");
+					// System.out.println("Figur im Weg!");
 					return false;
 				}
 			} else if (dify == 0) {
 				if (board.Squares[start.getPositionx() + (m * (difx / i))][start
 						.getPositiony()].isOccupied()) {
-					System.out.println("Figur im Weg!");
+					// System.out.println("Figur im Weg!");
 					return false;
 				}
 			} else if (board.Squares[start.getPositionx() + (m * (difx / i))][start
 					.getPositiony() + (m * (dify / j))].isOccupied()) {
-				System.out.println("Figur im Weg!");
+				// System.out.println("Figur im Weg!");
 				return false;
 			}
 		}
@@ -50,12 +50,16 @@ public class PathClear {
 				}
 				if (board.Squares[start.getPositionx()][start.getPositiony()
 						+ m * (dify / j)] == movedpiecetarget) {
+					if(movedpiecestart.OccupiyingPiece.getName()=="K")
+					{
+						return true;
+					}
 					return false;
 				}
 
 				if (board.Squares[start.getPositionx()][start.getPositiony()
 						+ m * (dify / j)].isOccupied()) {
-					System.out.println("Figur im Weg!");
+					// System.out.println("Figur im Weg!");
 					return false;
 				}
 			}
@@ -67,17 +71,102 @@ public class PathClear {
 				}
 				if (board.Squares[start.getPositionx() + m * (difx / i)][start
 						.getPositiony()] == movedpiecetarget) {
+					if(movedpiecestart.OccupiyingPiece.getName()=="K")
+					{
+						return true;
+					}
 					return false;
 				}
 				if (board.Squares[start.getPositionx() + m * (difx / i)][start
 						.getPositiony()].isOccupied()) {
-					System.out.println("Figur im Weg!");
+					// System.out.println("Figur im Weg!");
 					return false;
 				}
 			} else {
 				if (board.Squares[start.getPositionx() + m
 
 				* (difx / i)][start.getPositiony() + m * (dify / j)] == movedpiecestart) {
+					continue;
+				}
+				if (board.Squares[start.getPositionx() + m
+
+				* (difx / i)][start.getPositiony() + m * (dify / j)] == movedpiecetarget) {
+					if(movedpiecestart.OccupiyingPiece.getName()=="K")
+					{
+						return true;
+					}
+					return false;
+				}
+
+				if (board.Squares[start.getPositionx() + m
+
+				* (difx / i)][start.getPositiony() + m * (dify / j)]
+						.isOccupied()) {
+					// System.out.println("Figur im Weg!");
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	public boolean isClear3(CurrentBoard board, Square start, Square target,
+			Square movedpiecestart, Square movedpiecetarget, Square epsquare) {
+		int difx = target.getPositionx() - start.getPositionx();
+		int dify = target.getPositiony() - start.getPositiony();
+		int i = 0;
+		int j = 0;
+		i = (difx > 0) ? difx : -difx;
+		j = (dify > 0) ? dify : -dify;
+		for (int m = 1; i > j ? m < i : m < j; m++) {
+			if (difx == 0) {
+				if (board.Squares[start.getPositionx()][start.getPositiony()
+						+ m * (dify / j)] == movedpiecestart) {
+					continue;
+				}
+				if (board.Squares[start.getPositionx()][start.getPositiony()
+						+ m * (dify / j)] == epsquare) {
+					continue;
+				}
+				if (board.Squares[start.getPositionx()][start.getPositiony()
+						+ m * (dify / j)] == movedpiecetarget) {
+					return false;
+				}
+
+				if (board.Squares[start.getPositionx()][start.getPositiony()
+						+ m * (dify / j)].isOccupied()) {
+					// System.out.println("Figur im Weg!");
+					return false;
+				}
+			}
+
+			else if (dify == 0) {
+				if (board.Squares[start.getPositionx() + m * (difx / i)][start
+						.getPositiony()] == movedpiecestart) {
+					continue;
+				}
+				if (board.Squares[start.getPositionx() + m * (difx / i)][start
+						.getPositiony()] == epsquare) {
+					continue;
+				}
+				if (board.Squares[start.getPositionx() + m * (difx / i)][start
+						.getPositiony()] == movedpiecetarget) {
+					return false;
+				}
+				if (board.Squares[start.getPositionx() + m * (difx / i)][start
+						.getPositiony()].isOccupied()) {
+					// System.out.println("Figur im Weg!");
+					return false;
+				}
+			} else {
+				if (board.Squares[start.getPositionx() + m
+
+				* (difx / i)][start.getPositiony() + m * (dify / j)] == movedpiecestart) {
+					continue;
+				}
+				if (board.Squares[start.getPositionx() + m
+
+				* (difx / i)][start.getPositiony() + m * (dify / j)] == epsquare) {
 					continue;
 				}
 				if (board.Squares[start.getPositionx() + m
@@ -90,7 +179,7 @@ public class PathClear {
 
 				* (difx / i)][start.getPositiony() + m * (dify / j)]
 						.isOccupied()) {
-					System.out.println("Figur im Weg!");
+					// System.out.println("Figur im Weg!");
 					return false;
 				}
 			}

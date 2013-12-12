@@ -16,7 +16,7 @@ public abstract class Piece extends board.Chessboard {
 	}
 
 	CurrentBoard board;
-	boolean hasmoved;
+	public boolean hasmoved = false;
 	// TODO
 	public String getColour() {
 		return colour;

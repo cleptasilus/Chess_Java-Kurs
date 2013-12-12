@@ -78,6 +78,27 @@ public class CheckMove {
 		return false;
 
 	}
+	public boolean MoveLegalNoCapture3(CurrentBoard board, Square start,
+			Square target, Square movedpiecestart, Square movedpiecetarget, Square epsquare) {
+		// Prüft ob der Weg frei ist
+		PathClear clear = new PathClear();
+		if (clear.isClear3(board, start, target, movedpiecestart, movedpiecetarget, epsquare)) {
+			// TODO
+			// Wenn der Weg frei ist, prüfe ob Ziel belegt
+			// if (target.isOccupied()) {
+			//
+			// //Prüfung andere Farbe Ja/Nein
+			// CheckMove capture = new CheckMove();
+			// if (!capture.canCapture(start, target)) {
+			// return false;
+			// }
+			// }
+
+			return true;
+		}
+		return false;
+
+	}
 
 	public boolean DiscoveredCheck(CurrentBoard board, Square start) {
 		for (Piece i : board.pieces) {

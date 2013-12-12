@@ -67,4 +67,25 @@ public class QueenMovement {
 		}
 		return false;
 	}
+	public boolean CheckQueen3(CurrentBoard board, Square start, Square target, Square movedpiecestart, Square movedpiecetarget, Square epsquare) {
+		for (int n = 0; n < 8; n++) {
+			if (((target.getPositionx() == start.getPositionx() + n || target
+					.getPositionx() == start.getPositionx() - n) && (target
+					.getPositiony() == start.getPositiony() + n || target
+					.getPositiony() == start.getPositiony() - n))
+					|| (((target.getPositionx() == start.getPositionx() + n || target
+							.getPositionx() == start.getPositionx() - n) && (target
+							.getPositiony() == start.getPositiony())) || ((target
+							.getPositiony() == start.getPositiony() + n || target
+							.getPositiony() == start.getPositiony() - n) && (target
+							.getPositionx() == start.getPositionx())))) {
+
+				CheckMove movecheck = new CheckMove();
+				return movecheck.MoveLegalNoCapture3(board, start, target, movedpiecestart, movedpiecetarget, epsquare);
+
+			}
+
+		}
+		return false;
+	}
 }

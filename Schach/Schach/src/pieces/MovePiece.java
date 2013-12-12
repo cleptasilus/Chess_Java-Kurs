@@ -15,4 +15,25 @@ public class MovePiece {
 		piece.hasmoved=true;
 
 	}
+	public void movepawntwosquares(CurrentBoard board, Piece piece, Square target){
+		piece.position.setOccupied(false);
+		piece.position.setOccupiyingPiece(null);
+		piece.setPosition(target);
+		piece.position.setOccupied(true);
+		piece.position.setOccupiyingPiece(piece);
+		piece.board.enPassanteSquare = piece.getPosition();
+		piece.hasmoved=true;
+	}
+	public void moveenpassante(CurrentBoard board, Piece piece, Square target){
+		piece.position.setOccupied(false);
+		piece.position.setOccupiyingPiece(null);
+		piece.setPosition(target);
+		piece.position.setOccupied(true);
+		piece.position.setOccupiyingPiece(piece);
+		piece.board.enPassanteSquare.OccupiyingPiece.setPosition(board.Squares[0][0]);
+		piece.board.enPassanteSquare.setOccupiyingPiece(null);
+		piece.board.enPassanteSquare.setOccupied(false);
+		piece.hasmoved=true;
+		
+	}
 }

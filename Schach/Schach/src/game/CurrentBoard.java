@@ -15,10 +15,11 @@ public class CurrentBoard {
 	public Rook[] transformedR= new Rook[16];
 	public Bishop[] transformedB= new Bishop[16];
 	public boolean isChecked=false;
-	int transcount=1;
+	public int result;
+	public int transcount=1;
 	public CurrentBoard() {
 		Squares = new Square[9][9];
-				
+		Squares[0][0]=new Square(-20, -20);	
 		for (int i = 1; i <= 8; i++) {
 			for (int j = 1; j <= 8; j++) {
 				Squares[i][j] = new Square(i, j);

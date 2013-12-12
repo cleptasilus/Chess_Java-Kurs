@@ -7,6 +7,10 @@ int wins;
 int losses;
 int draws;
 //TODO
+public Player(String name, String colour){
+	this.setName(name);
+	this.setColour(colour);
+}
 public String getColour() {
 	return colour;
 }
