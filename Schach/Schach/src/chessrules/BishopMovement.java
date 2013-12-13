@@ -58,7 +58,7 @@ public class BishopMovement {
 								.getPositiony() == start.getPositiony() + n || movedpiecetarget
 								.getPositiony() == start.getPositiony() - n))
 								){
-				return movecheck.MoveLegalNoCapture2(board, start, movedpiecetarget, movedpiecestart, target);
+				return movecheck.MoveLegalNoCapture2(board, start, movedpiecetarget, movedpiecestart, null);
 				}
 
 			}
