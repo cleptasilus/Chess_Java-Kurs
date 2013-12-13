@@ -23,9 +23,9 @@ public class KnightMovement {
 			return true;
 		}
 		return false;
-		
-		
+
 	}
+
 	public boolean CheckKnight(CurrentBoard board, Square start, Square target) {
 
 		if (((target.getPositionx() == start.getPositionx() + 2) || (target
@@ -41,30 +41,31 @@ public class KnightMovement {
 		}
 		return false;
 	}
-	public boolean CheckKnight2(CurrentBoard board, Square start, Square target, Square movedpiecestart, Square movedpiecetarget) {
 
-		if (((target.getPositionx() == start.getPositionx() + 2) || (target
-				.getPositionx() == start.getPositionx() - 2))
-				&& ((target.getPositiony() == start.getPositiony() + 1) || (target
-						.getPositiony() == start.getPositiony() - 1))
-				|| (((target.getPositiony() == start.getPositiony() + 2) || (target
-						.getPositiony() == start.getPositiony() - 2)) && ((target
-						.getPositionx() == start.getPositionx() + 1) || (target
-						.getPositionx() == start.getPositionx() - 1)))) {
-			if(!(movedpiecestart.OccupiyingPiece.getName()=="K")){
-				return true;
-			}
-			else if(((movedpiecetarget.getPositionx() == start.getPositionx() + 2) || (movedpiecetarget
+	public boolean CheckKnight2(CurrentBoard board, Square start,
+			Square target, Square movedpiecestart, Square movedpiecetarget) {
+		if (!(movedpiecestart.OccupiyingPiece.getName() == "K")) {
+			if (((target.getPositionx() == start.getPositionx() + 2) || (target
 					.getPositionx() == start.getPositionx() - 2))
-					&& ((movedpiecetarget.getPositiony() == start.getPositiony() + 1) || (movedpiecetarget
+					&& ((target.getPositiony() == start.getPositiony() + 1) || (target
 							.getPositiony() == start.getPositiony() - 1))
-					|| (((movedpiecetarget.getPositiony() == start.getPositiony() + 2) || (movedpiecetarget
-							.getPositiony() == start.getPositiony() - 2)) && ((movedpiecetarget
-							.getPositionx() == start.getPositionx() + 1) || (movedpiecetarget
-							.getPositionx() == start.getPositionx() - 1)))){
+					|| (((target.getPositiony() == start.getPositiony() + 2) || (target
+							.getPositiony() == start.getPositiony() - 2)) && ((target
+							.getPositionx() == start.getPositionx() + 1) || (target
+							.getPositionx() == start.getPositionx() - 1)))) {
+
 				return true;
-				
 			}
+		} else if (((movedpiecetarget.getPositionx() == start.getPositionx() + 2) || (movedpiecetarget
+				.getPositionx() == start.getPositionx() - 2))
+				&& ((movedpiecetarget.getPositiony() == start.getPositiony() + 1) || (movedpiecetarget
+						.getPositiony() == start.getPositiony() - 1))
+				|| (((movedpiecetarget.getPositiony() == start.getPositiony() + 2) || (movedpiecetarget
+						.getPositiony() == start.getPositiony() - 2)) && ((movedpiecetarget
+						.getPositionx() == start.getPositionx() + 1) || (movedpiecetarget
+						.getPositionx() == start.getPositionx() - 1)))) {
+			return true;
+
 		}
 		return false;
 	}
