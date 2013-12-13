@@ -25,6 +25,29 @@ public class BrettPanel extends JPanel
 		@Override
 		public void mouseClicked(MouseEvent e)
 		{
+			
+			if(c.isMatt)
+			{
+				c.gameMessages += "Spiel beendet Matt gesetzt!\n";
+				if(c.isWeissGewinner)
+				{
+					c.gameMessages += "Weiß hat gewonnen!\n";
+				}
+				else
+				{
+					c.gameMessages += "Schwarz hat gewonnen!\n";
+				}
+			return;
+			}
+			if(c.isSpielPausiert)
+			{
+				c.gameMessages += "Spiel ist pausiert kein Zug möglich!\n";
+				return;
+			}
+			if(c.isRemis)
+			{
+				c.gameMessages += "Remis!\n";
+			}
 			if(c.isFigurAusgewaehlt && c.isRunning && isClickedLegal)
 			{
 				//Ziel Kooridnaten bestimmen
@@ -53,6 +76,36 @@ public class BrettPanel extends JPanel
 						c.isLegalMove = mover.move(c.schach, c.schach.Squares[c.startPosX][c.startPosY], c.schach.Squares[c.zielPosX][c.zielPosY], "Q");
 						if(c.isLegalMove)
 						{
+							if(c.schach.isChecked == true)
+							{
+								c.isSchach = true;
+								c.gameMessages += "Schach!\n";
+							}
+							else
+							{
+								c.isSchach = false;
+							}
+							if(c.schach.result == 1)
+							{
+								c.isMatt = true;
+								c.isWeissGewinner = true;
+								c.isRunning = false;
+								c.gameMessages += "Matt Weiß gewinnt!\n";
+							}
+							if(c.schach.result == 2)
+							{
+								c.isMatt = true;
+								c.isWeissGewinner = false;
+								c.isRunning = false;
+								c.gameMessages += "Matt Schwarz gewinnt!\n";
+							}
+							if(c.schach.result == 3)
+							{
+								c.isRemis = true;
+								c.isRunning = false;
+								c.gameMessages += "Remis!\n";
+							}
+							
 							if(c.isWeisserZug)
 							{
 								c.isWeisserZug = false;
@@ -62,8 +115,9 @@ public class BrettPanel extends JPanel
 							{
 								c.isWeisserZug = true;
 								c.log += "    " + c.schach.Squares[c.zielPosX][c.zielPosY].toString() +"\n";
+								c.rundeNummer++;
 							}
-							c.rundeNummer++;
+							
 						}
 						else
 						{
@@ -142,7 +196,7 @@ public class BrettPanel extends JPanel
 		
 		for(Piece temp : c.schach.pieces)
 		{	
-			if(temp.getPosition() == null || temp.getPosition() == null)
+			if(temp.getPosition().getPositionx() == -20 || temp.getPosition().getPositiony() == -20)
 			{
 				if(temp.getColour() == "White")
 				{
@@ -183,17 +237,17 @@ public class BrettPanel extends JPanel
 			{
 				switch(temp.getName())
 				{
-				case "K": g.drawImage(c.wKing, (temp.getPosition().getPositionx()-1)*Size.figureWidht+Size.figureAbstand, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
+				case "K": g.drawImage(c.wKing, (temp.getPosition().getPositionx()-1)*Size.brettHigh/8, (temp.getPosition().getPositiony()-1)*Size.brettHigh/8, Size.figureWidht, Size.figureHigh, null);
 					break;
-				case "Q": g.drawImage(c.wQueen, (temp.getPosition().getPositionx()-1)*Size.figureWidht+Size.figureAbstand, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
+				case "Q": g.drawImage(c.wQueen, (temp.getPosition().getPositionx()-1)*Size.brettHigh/8, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
 					break;
-				case "R": g.drawImage(c.wRook, (temp.getPosition().getPositionx()-1)*Size.figureWidht+Size.figureAbstand, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
+				case "R": g.drawImage(c.wRook, (temp.getPosition().getPositionx()-1)*Size.brettHigh/8, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
 					break;
-				case "N": g.drawImage(c.wKnight, (temp.getPosition().getPositionx()-1)*Size.figureWidht+Size.figureAbstand, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
+				case "N": g.drawImage(c.wKnight, (temp.getPosition().getPositionx()-1)*Size.brettHigh/8, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
 					break;
-				case "": g.drawImage(c.wPawn, (temp.getPosition().getPositionx()-1)*Size.figureWidht+Size.figureAbstand, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
+				case "": g.drawImage(c.wPawn, (temp.getPosition().getPositionx()-1)*Size.brettHigh/8, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
 					break;
-				case "B": g.drawImage(c.wBishop, (temp.getPosition().getPositionx()-1)*Size.figureWidht+Size.figureAbstand, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
+				case "B": g.drawImage(c.wBishop, (temp.getPosition().getPositionx()-1)*Size.brettHigh/8, (temp.getPosition().getPositiony()-1)*Size.figureHigh+Size.figureAbstand, Size.figureWidht, Size.figureHigh, null);
 					break;
 				default: System.out.println("Debug: Fehler! Bei bestimmen der Figur");
 					break;

@@ -98,7 +98,11 @@ public class Common
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					if(isSpielPausiert == false && isWeisserZug == false && zeitSchwarz > 0)
+					if(isRunning == false)
+					{
+						return;
+					}
+					if(isSpielPausiert == false && isWeisserZug == false && zeitSchwarz > 0 && isRunning)
 					{
 						zeitSchwarz--;
 					}
@@ -109,6 +113,7 @@ public class Common
 							isSpielPausiert = true;
 							isRunning = false;
 							isWeissGewinner = true;
+							gameMessages += "Schwarze Zeit abgelaufen, Weiﬂ gewinnt!\n";
 						}
 					}
 				}
@@ -118,7 +123,11 @@ public class Common
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					if(isSpielPausiert == false && isWeisserZug == true && zeitWeiss > 0)
+					if(isRunning == false)
+					{
+						return;
+					}
+					if(isSpielPausiert == false && isWeisserZug == true && zeitWeiss > 0 && isRunning)
 					{
 						zeitWeiss--;
 					}
@@ -129,6 +138,7 @@ public class Common
 							isSpielPausiert = true;
 							isRunning = false;
 							isWeissGewinner = false;
+							gameMessages += "Weiﬂ Zeit abgelaufen, Schwarz gewinnt!\n";
 						}
 					}
 				}
@@ -171,5 +181,32 @@ public class Common
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+	
+	void reset()
+	{
+		isRunning = true;
+		isSchach = false;
+		isMatt = false;
+		isRemis = false;
+		isWeisserZug = true;
+		isFigurAusgewaehlt = false;
+		isLegalMove = false;
+		isSpielPausiert = false;	
+		
+		nameWeisserSpieler = "Weiﬂer Spieler";
+		nameSchwarzerSpieler = "Schwarzer Spieler";
+		isWeissGewinner = false;
+		
+		rundeNummer = 1;
+		zeitWeiss = 3600;
+		zeitSchwarz = 3600;
+		log = "";
+		gameMessages = "";
+		
+		weiﬂeToteFiguren = new int[5];
+		schwarzeToteFiguren =  new int[5];
+		
+		schach = new CurrentBoard();
 	}
 }

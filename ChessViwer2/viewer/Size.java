@@ -9,9 +9,9 @@ public interface Size
 	//Brett und Figuren
 	final int brettHigh = 400;
 	final int brettWidth = brettHigh;
-	final int figureHigh = 50;
+	final int figureHigh = Size.brettHigh/8;
 	final int figureWidht = figureHigh;
-	final int figureAbstand = 6;
+	final int figureAbstand = 0;
 	
 	//Infopanel
 	final int infoHigh = windowHigh;
