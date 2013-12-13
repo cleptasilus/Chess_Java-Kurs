@@ -21,8 +21,8 @@ public class Main {
 		move.move(s, s.Squares[5][2], s.Squares[6][3], "Q");
 		move.move(s, s.Squares[6][3], s.Squares[6][4], "Q");
 		move.move(s, s.Squares[5][7], s.Squares[5][6], "Q");
-		move.move(s, s.Squares[7][8], s.Squares[5][7], "Q");
-		move.move(s, s.Squares[5][7], s.Squares[7][6], "Q");
+		move.move(s, s.Squares[4][8], s.Squares[6][6], "Q");
+//		move.move(s, s.Squares[5][7], s.Squares[7][6], "Q");
 
 //		move.move(s, s.Squares[6][8], s.Squares[3][5]);
 //		move.move(s, s.Squares[8][5], s.Squares[6][7]);

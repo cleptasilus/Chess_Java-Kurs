@@ -65,8 +65,18 @@ public class RookMovement {
 				// Return true wenn Zug legal
 
 				CheckMove movecheck = new CheckMove();
-				return movecheck.MoveLegalNoCapture2(board, start, target, movedpiecestart, movedpiecetarget);
-
+				
+				if(!(movedpiecestart.OccupiyingPiece.getName()=="K")){
+					return movecheck.MoveLegalNoCapture2(board, start, target, movedpiecestart, movedpiecetarget);
+				}
+				else if (((movedpiecetarget.getPositionx() == start.getPositionx() + n || movedpiecetarget
+										.getPositionx() == start.getPositionx() - n) && (movedpiecetarget
+										.getPositiony() == start.getPositiony())) || ((movedpiecetarget
+										.getPositiony() == start.getPositiony() + n || movedpiecetarget
+										.getPositiony() == start.getPositiony() - n) && (movedpiecetarget
+										.getPositionx() == start.getPositionx()))){
+				return movecheck.MoveLegalNoCapture2(board, start, movedpiecetarget, movedpiecestart, target);
+				}
 			}
 		}
 

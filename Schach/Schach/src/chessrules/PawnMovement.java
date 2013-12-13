@@ -84,6 +84,22 @@ public class PawnMovement {
 						&& ((target.getPositionx() == start.getPositionx() + 1) || (target
 								.getPositionx() == start.getPositionx() - 1)) && target
 						.getPositiony() == start.getPositiony() - 1)) {
+			if(!(movedpiecestart.OccupiyingPiece.getName()=="K")){
+				return true;
+			}
+			else if(((start.OccupiyingPiece.getColour() == "White"
+					&& movedpiecetarget.isOccupied()
+					&& ((movedpiecetarget.getPositionx() == start.getPositionx() + 1) || (movedpiecetarget
+							.getPositionx() == start.getPositionx() - 1)) && target
+					.getPositiony() == start.getPositiony() + 1)
+					|| (start.OccupiyingPiece.getColour() == "Black"
+							&& movedpiecetarget.isOccupied()
+							&& ((movedpiecetarget.getPositionx() == start.getPositionx() + 1) || (movedpiecetarget
+									.getPositionx() == start.getPositionx() - 1)) && movedpiecetarget
+							.getPositiony() == start.getPositiony() - 1))){
+				return true;
+				
+			}
 
 			}
 		return false;

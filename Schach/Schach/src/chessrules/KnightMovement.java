@@ -43,16 +43,28 @@ public class KnightMovement {
 	}
 	public boolean CheckKnight2(CurrentBoard board, Square start, Square target, Square movedpiecestart, Square movedpiecetarget) {
 
-		if (((movedpiecetarget.getPositionx() == start.getPositionx() + 2) || (target
+		if (((target.getPositionx() == start.getPositionx() + 2) || (target
 				.getPositionx() == start.getPositionx() - 2))
-				&& ((movedpiecetarget.getPositiony() == start.getPositiony() + 1) || (target
+				&& ((target.getPositiony() == start.getPositiony() + 1) || (target
 						.getPositiony() == start.getPositiony() - 1))
-				|| (((movedpiecetarget.getPositiony() == start.getPositiony() + 2) || (movedpiecetarget
-						.getPositiony() == start.getPositiony() - 2)) && ((movedpiecetarget
-						.getPositionx() == start.getPositionx() + 1) || (movedpiecetarget
+				|| (((target.getPositiony() == start.getPositiony() + 2) || (target
+						.getPositiony() == start.getPositiony() - 2)) && ((target
+						.getPositionx() == start.getPositionx() + 1) || (target
 						.getPositionx() == start.getPositionx() - 1)))) {
-
-			return true;
+			if(!(movedpiecestart.OccupiyingPiece.getName()=="K")){
+				return true;
+			}
+			else if(((movedpiecetarget.getPositionx() == start.getPositionx() + 2) || (movedpiecetarget
+					.getPositionx() == start.getPositionx() - 2))
+					&& ((movedpiecetarget.getPositiony() == start.getPositiony() + 1) || (movedpiecetarget
+							.getPositiony() == start.getPositiony() - 1))
+					|| (((movedpiecetarget.getPositiony() == start.getPositiony() + 2) || (movedpiecetarget
+							.getPositiony() == start.getPositiony() - 2)) && ((movedpiecetarget
+							.getPositionx() == start.getPositionx() + 1) || (movedpiecetarget
+							.getPositionx() == start.getPositionx() - 1)))){
+				return true;
+				
+			}
 		}
 		return false;
 	}

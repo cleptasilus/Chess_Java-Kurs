@@ -49,9 +49,17 @@ public class BishopMovement {
 					.getPositiony() == start.getPositiony() + n || target
 					.getPositiony() == start.getPositiony() - n)))
 			{
-
-				CheckMove movecheck = new CheckMove();
-				return movecheck.MoveLegalNoCapture2(board, start, target, movedpiecestart, movedpiecetarget);
+				CheckMove movecheck=new CheckMove();
+				if(!(movedpiecestart.OccupiyingPiece.getName()=="K")){
+					return movecheck.MoveLegalNoCapture2(board, start, target, movedpiecestart, movedpiecetarget);
+				}
+				else if(((movedpiecetarget.getPositionx() == start.getPositionx() + n || movedpiecetarget
+						.getPositionx() == start.getPositionx() - n) && (movedpiecetarget
+								.getPositiony() == start.getPositiony() + n || movedpiecetarget
+								.getPositiony() == start.getPositiony() - n))
+								){
+				return movecheck.MoveLegalNoCapture2(board, start, movedpiecetarget, movedpiecestart, target);
+				}
 
 			}
 
