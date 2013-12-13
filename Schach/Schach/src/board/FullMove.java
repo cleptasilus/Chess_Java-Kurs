@@ -23,8 +23,9 @@ public class FullMove {
 					&& (target.getPositionx() == start.getPositionx() - 2 || target
 							.getPositionx() == start.getPositionx() + 2)) {
 				KingMovement king = new KingMovement();
-				king.Castle(board, start, target);
+				if(king.Castle(board, start, target)){
 				return true;
+				}
 			}
 			if (start.OccupiyingPiece.getName() == ""
 					&& (target.getPositionx() == start.getPositionx() + 1 || target
@@ -48,6 +49,7 @@ public class FullMove {
 							String epstring = start.toString().substring(0, 1)
 									+ "x" + target.toString() + "#";
 							System.out.println(epstring);
+							
 							switch (target.OccupiyingPiece.getColour()) {
 							case "White":
 								board.result = 1;
@@ -60,6 +62,7 @@ public class FullMove {
 							String epstring = start.toString().substring(0, 1)
 									+ "x" + target.toString() + "+";
 							System.out.println(epstring);
+							board.isChecked=true;
 						}
 					} else {
 						if (!resultchecker.LegalMoves(board,
@@ -72,6 +75,7 @@ public class FullMove {
 							String epstring = start.toString().substring(0, 1)
 									+ "x" + target.toString();
 							System.out.println(epstring);
+							board.isChecked=false;
 						}
 					}
 					board.enPassanteSquare = null;
@@ -153,6 +157,7 @@ public class FullMove {
 							}
 
 						} else {
+							board.isChecked=true;
 							System.out.println(transformed? movestring + "+" : target.OccupiyingPiece.getName()
 									+ movestring + "+");
 						}
@@ -166,6 +171,7 @@ public class FullMove {
 						} else {
 							System.out.println(target.OccupiyingPiece.getName()
 									+ movestring);
+							board.isChecked=false;
 						}
 					}
 					return true;
