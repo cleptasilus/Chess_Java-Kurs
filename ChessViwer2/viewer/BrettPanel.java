@@ -274,6 +274,11 @@ public class BrettPanel extends JPanel
 				}
 			}
 		}
+		if(c.isFigurAusgewaehlt)
+		{
+			g.setColor(Color.RED);
+			g.drawRect((c.startPosX-1)*Size.figureWidht, (c.startPosY-1)*Size.figureHigh, Size.figureWidht, Size.figureHigh);
+		}
 	}
 	
 }
