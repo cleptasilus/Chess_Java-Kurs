@@ -22,6 +22,7 @@ public class PreMove {
 						result = k.MoveKing2(board, piece.getPosition(),
 								board.pieces.get(0).getPosition(), start,
 								target);
+						break;
 					case "Q":
 						QueenMovement q = new QueenMovement();
 						result = q.CheckQueen2(board, piece.getPosition(),
@@ -56,7 +57,13 @@ public class PreMove {
 					break;
 				case "White":
 					switch (piece.getName()) {
-					case "Q":
+					case "K":
+						KingMovement k = new KingMovement();
+						result = k.MoveKing2(board, piece.getPosition(),
+								board.pieces.get(0).getPosition(), start,
+								target);
+						break;
+					case "Q":					
 						QueenMovement q = new QueenMovement();
 						result = q.CheckQueen2(board, piece.getPosition(),
 								board.pieces.get(1).getPosition(), start,

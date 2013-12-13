@@ -43,13 +43,13 @@ public class KnightMovement {
 	}
 	public boolean CheckKnight2(CurrentBoard board, Square start, Square target, Square movedpiecestart, Square movedpiecetarget) {
 
-		if (((target.getPositionx() == start.getPositionx() + 2) || (target
+		if (((movedpiecetarget.getPositionx() == start.getPositionx() + 2) || (target
 				.getPositionx() == start.getPositionx() - 2))
-				&& ((target.getPositiony() == start.getPositiony() + 1) || (target
+				&& ((movedpiecetarget.getPositiony() == start.getPositiony() + 1) || (target
 						.getPositiony() == start.getPositiony() - 1))
-				|| (((target.getPositiony() == start.getPositiony() + 2) || (target
-						.getPositiony() == start.getPositiony() - 2)) && ((target
-						.getPositionx() == start.getPositionx() + 1) || (target
+				|| (((movedpiecetarget.getPositiony() == start.getPositiony() + 2) || (movedpiecetarget
+						.getPositiony() == start.getPositiony() - 2)) && ((movedpiecetarget
+						.getPositionx() == start.getPositionx() + 1) || (movedpiecetarget
 						.getPositionx() == start.getPositionx() - 1)))) {
 
 			return true;
